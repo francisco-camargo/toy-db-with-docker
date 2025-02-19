@@ -10,7 +10,8 @@ services:
     ports:
       - "3307:3307"
     volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql # Automatically run SQL script
+      - mysql_data:/var/lib/mysql # Persist MySQL data
 
 volumes:
   mysql_data:
