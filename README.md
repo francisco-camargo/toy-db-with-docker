@@ -1,9 +1,24 @@
-toy-db-with-docker
+Toy Database with Docker
 ==================
 
 # Purpose
 
 This project is used to learn how to create a database from scratch and containerize it from scratch. Specifically, it uses a MariaDB database and Docker. It includes a `docker-compose.yml` file to define the services and an `init.sql` file to initialize the database schema. By using `volumes`, the database will persist even if the container is stopped or deleted.
+
+# Citation Instructions
+
+If you use this repository in your work, please cite it as follows:
+
+**GitHub Repository**: [toy-db-with-docker](https://github.com/francisco-camargo/toy-db-with-docker.git)
+
+**Suggested Citation**:
+
+* Author: Francisco Camargo
+* Title: Toy Database with Docker
+* Source: https://github.com/francisco-camargo/toy-db-with-docker.git
+* Date Accessed:
+
+Please ensure proper attribution when using or modifying this work.
 
 # Project Structure
 
@@ -115,18 +130,3 @@ Here are the steps to do a hard restart:
     ```
 
 This process will remove the existing data and recreate the tables using the `init.sql` script when the container starts.
-
-# Citation Instructions
-
-If you use this repository in your work, please cite it as follows:
-
-**GitHub Repository**: [toy-db-with-docker](https://github.com/francisco-camargo/toy-db-with-docker.git)
-
-**Suggested Citation**:
-
-* Author(s): Francisco Camargo
-* Title: toy-db-with-docker
-* Source: https://github.com/francisco-camargo/toy-db-with-docker.git
-* Date Accessed:
-
-Please ensure proper attribution when using or modifying this work.
