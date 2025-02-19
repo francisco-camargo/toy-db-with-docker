@@ -22,7 +22,7 @@ To build and run the Docker container, follow these steps:
     ```sh
     docker compose up
     ```
-5. The MariaDB server will be accessible on `localhost:3307`.
+5. The MariaDB server will be accessible on `localhost:3306`.
 
 # Database Initialization
 
