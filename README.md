@@ -3,14 +3,14 @@ toy-db-with-docker
 
 # Purpose
 
-This project is used to learn how to create a database and containerize it from scratch. Specifically, it uses a MySQL database using Docker. It includes a `docker-compose.yml` file to define the services and an `init.sql` file to initialize the database schema.
+This project is used to learn how to create a database from scratch and containerize it from scratch. Specifically, it uses a MySQL database and Docker. It includes a `docker-compose.yml` file to define the services and an `init.sql` file to initialize the database schema. By using `volumes`, the database will persist even if the container is stopped or deleted.
 
-## Project Structure
+# Project Structure
 
 - `docker-compose.yml`: Defines the MySQL service and its configuration.
 - `init.sql`: Contains SQL commands to create a simple MySQL table.
 
-## Getting Started
+# Getting Started
 
 To build and run the Docker container, follow these steps:
 
@@ -20,25 +20,15 @@ To build and run the Docker container, follow these steps:
 4. Run the following command to start the MySQL service:
 
    ```
-   docker-compose up
+   docker compose up
    ```
 5. The MySQL server will be accessible on `localhost:3306`.
 
-## Database Initialization
+# Database Initialization
 
 The `init.sql` file will be executed automatically when the MySQL container starts. It sets up the initial database schema, including the creation of a simple table.
 
-## Stopping the Service
-
-To stop the MySQL service, use the following command:
-
-```
-docker-compose down
-```
-
-This will stop and remove the containers defined in the `docker-compose.yml` file.
-
-# Check if the Service is Running
+## Check if the Service is Running
 
 You can check if the MySQL database is running by following these steps:
 
@@ -46,7 +36,7 @@ You can check if the MySQL database is running by following these steps:
    Run the following command in the terminal from the directory containing your docker-compose.yml file:
 
    ```sh
-   docker-compose up -d
+   docker compose up -d
    ```
 
 2. **Check the status of the container**:
@@ -81,6 +71,41 @@ You can check if the MySQL database is running by following these steps:
    ```
 
    Look for messages indicating that the MySQL server has started and is ready to accept connections.
+
+## Stopping the Service
+
+To stop the MySQL service, use the following command:
+
+```
+docker compose down
+```
+
+This will stop and remove the containers defined in the `docker-compose.yml` file.
+
+# Database Reset
+
+To perform a hard restart and recreate the table the next time you run the container, you need to remove the existing named volume `mysql_data`. This will delete all the data stored in the volume, including the tables, and allow the `init.sql` script to run again and recreate the tables.
+
+Here are the steps to do a hard restart:
+
+1. **Stop and remove the running container**:
+   ```sh
+   docker compose down
+   ```
+
+2. **Remove the named volume**:
+   ```sh
+   docker volume rm toy-db-with-docker_mysql_data
+   ```
+
+   Note: The volume name is prefixed with the project directory name by default. Adjust the volume name if necessary.
+
+3. **Start the container again**:
+   ```sh
+   docker compose up -d
+   ```
+
+This process will remove the existing data and recreate the tables using the `init.sql` script when the container starts.
 
 # Citation Instructions
 
