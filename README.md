@@ -82,9 +82,9 @@ You can check if the MariaDB database is running by following these steps:
 
 To stop the MariaDB service, use the following command:
 
-    ```sh
-    docker compose down
-    ```
+```sh
+docker compose down
+```
 
 This will stop and remove the containers defined in the `docker-compose.yml` file.
 
